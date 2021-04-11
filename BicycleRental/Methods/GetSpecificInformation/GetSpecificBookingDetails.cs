@@ -1,7 +1,5 @@
 ﻿using BicycleRental.Methods.GetAllInformation;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BicycleRental.Methods.GetSpecificInformation
 {
@@ -13,11 +11,11 @@ namespace BicycleRental.Methods.GetSpecificInformation
 
         }
 
-        public void GetSpecificBookingDetailsInfo() 
+        public void GetSpecificBookingDetailsInfo()
         {
             var BookingDetails = new GetAllBookingDetails();
             Console.WriteLine($"Here are all existing Booking Details:\n");
-            BookingDetails.GetAllBicycleBrandsInfo();
+            BookingDetails.GetAllBookingDetailsInfo();
 
             Console.WriteLine($"\nChoose specific Booking Detail to view by entering Booking Id ");
             var userInput = Convert.ToInt32(Console.ReadLine());

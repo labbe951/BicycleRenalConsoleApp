@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BicycleRental.Migrations
 {
-    public partial class InitPhoneBigInt : Migration
+    public partial class BicycleRentalStore : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,7 +28,8 @@ namespace BicycleRental.Migrations
                 {
                     Customer_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Customer_name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_First_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Customer_Last_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Phone_number = table.Column<long>(type: "BigInt", nullable: false),
                     E_mail = table.Column<string>(type: "nvarchar(max)", nullable: true)

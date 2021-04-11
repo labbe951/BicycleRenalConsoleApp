@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BicycleRental.Methods.GetAllInformation
 {
@@ -17,10 +15,10 @@ namespace BicycleRental.Methods.GetAllInformation
         /// <summary>
         /// Get all existing Bicycle Brands
         /// </summary>
-        public void GetAllBicycleBrandsInfo() 
-        { 
-        var GetInfo = _bicycleRentalDbContext.Bicycle_brands.ToList();
-            
+        public void GetAllBicycleBrandsInfo()
+        {
+            var GetInfo = _bicycleRentalDbContext.Bicycle_brands.ToList();
+
 
             foreach (var item in GetInfo)
             {

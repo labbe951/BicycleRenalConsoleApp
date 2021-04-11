@@ -1,7 +1,5 @@
 ﻿using BicycleRental.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BicycleRental.Methods.AddMethods
 {

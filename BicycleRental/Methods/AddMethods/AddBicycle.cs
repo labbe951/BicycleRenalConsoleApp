@@ -1,7 +1,5 @@
 ﻿using BicycleRental.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BicycleRental.Methods.AddMethods
 {
@@ -30,7 +28,7 @@ namespace BicycleRental.Methods.AddMethods
                 {
                     Frame_number = Frame_number,
                     Brand_id = Brand_id
-                   
+
                 };
                 _bicycleRentalDbContext.Bicycles
                     .Add(NewBicycle);

@@ -1,9 +1,6 @@
 ﻿using BicycleRental.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BicycleRental.Configurations
 {

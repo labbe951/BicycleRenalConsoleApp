@@ -2,19 +2,19 @@
 
 namespace BicycleRental.Methods.ReturnObject
 {
-    public class ReturnBicycle
+    public class ReturnCustomer
     {
         readonly BicycleRentalDbContext _bicycleRentalDbContext = new BicycleRentalDbContext();
-        public ReturnBicycle()
+        public ReturnCustomer()
         {
 
         }
 
-        public Bicycle Return_Bicycle(int bicycle_Id)
+        public Customer Return_Customer(int customer_id)
         {
-            var _bicycle = _bicycleRentalDbContext.Bicycles.Find(bicycle_Id);
+            var _customer = _bicycleRentalDbContext.Customers.Find(customer_id);
 
-            return _bicycle;
+            return _customer;
         }
     }
 }

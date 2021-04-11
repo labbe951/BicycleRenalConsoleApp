@@ -1,13 +1,10 @@
-﻿using BicycleRental.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 
-namespace BicycleRental
+namespace BicycleRental.Models
 {
     public class Booking_detail
     {
-        
+
         public int Booking_id { get; set; }
         public DateTime Booking_date { get; set; }
         public DateTime Return_due_date { get; set; }

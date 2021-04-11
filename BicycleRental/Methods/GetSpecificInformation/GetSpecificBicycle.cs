@@ -1,7 +1,5 @@
 ﻿using BicycleRental.Methods.GetAllInformation;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BicycleRental.Methods.GetSpecificInformation
 {
@@ -13,7 +11,7 @@ namespace BicycleRental.Methods.GetSpecificInformation
         {
 
         }
-        public void GetSpecificBicycleInfo() 
+        public void GetSpecificBicycleInfo()
         {
             var Bicycles = new GetAllBicycles();
             Console.WriteLine($"Here are all existing Bicycles:\n");

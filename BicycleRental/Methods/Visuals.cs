@@ -1,12 +1,11 @@
 ﻿using BicycleRental.Methods.AddMethods;
+using BicycleRental.Methods.DeleteMethods;
 using BicycleRental.Methods.GetAllInformation;
 using BicycleRental.Methods.GetSpecificInformation;
 using BicycleRental.Methods.UpdateMethods;
-using BicycleRental.Models;
+using BicycleRental.Methods.GetMultiInfo;
 using Figgle;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BicycleRental.Methods
 {
@@ -15,10 +14,10 @@ namespace BicycleRental.Methods
     {
         public Visuals()
         {
-            
+
         }
 
-        public static void Header() 
+        public static void Header()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Clear();
@@ -41,7 +40,7 @@ namespace BicycleRental.Methods
             Console.WriteLine("1: Alter information");
             Console.WriteLine("2: Show information");
             Console.WriteLine("3: Exit Application");
-        
+
             var userChoice = Console.ReadLine();
             switch (userChoice)
             {
@@ -66,13 +65,13 @@ namespace BicycleRental.Methods
         /// <summary>
         /// Choose this to enter the alter info menu
         /// </summary>
-        public static void AlterInformation() 
+        public static void AlterInformation()
         {
             Console.Clear();
             Console.WriteLine("1: Add information");
             Console.WriteLine("2: Update information");
             Console.WriteLine("3: Delete infromation");
-            
+
             Console.WriteLine("");
 
             var userChoice = Console.ReadLine();
@@ -103,8 +102,8 @@ namespace BicycleRental.Methods
         {
             var Customer = new AddCustomer();
             var Bicycle = new AddBicycle();
-            var Bicycle_brand = new AddBicycle_brand();
             var BookingDetail = new AddBooking_detail();
+            var Bicycle_brand = new AddBicycle_brand();
 
             Console.Clear();
             Console.WriteLine("1: Add Customer");
@@ -123,7 +122,7 @@ namespace BicycleRental.Methods
                     ReturnToMainMenu();
                     break;
                 case "2":
-                     Bicycle.AddNewBicycle();
+                    Bicycle.AddNewBicycle();
                     ReturnToMainMenu();
                     break;
                 case "3":
@@ -151,7 +150,10 @@ namespace BicycleRental.Methods
         /// </summary>
         public static void UpdateInformation()
         {
+            var Customer = new UpdateCustomer();
             var Bicycle = new UpdateBicycle();
+            var BookingDetail = new UpdateBookingDetails();
+            var Bicycle_brand = new UpdateBicycleBrand();
 
             Console.Clear();
             Console.WriteLine("1: Update Customer");
@@ -166,16 +168,20 @@ namespace BicycleRental.Methods
             switch (userChoice)
             {
                 case "1":
-                    //Update Customer();
+                    Customer.UpdateExistingCustomer();
+                    ReturnToMainMenu();
                     break;
                 case "2":
                     Bicycle.UpdateExistingBicycle();
+                    ReturnToMainMenu();
                     break;
                 case "3":
-                    //Update Booking_detail();
+                    BookingDetail.UpdateExistingBookingDetails();
+                    ReturnToMainMenu();
                     break;
                 case "4":
-                    //Update Bicycle_brand();
+                    Bicycle_brand.UpdateExistingBicycleBrand();
+                    ReturnToMainMenu();
                     break;
                 default:
                     Console.Clear();
@@ -191,12 +197,16 @@ namespace BicycleRental.Methods
         /// </summary>
         public static void DeleteInformation()
         {
+            var Customer = new DeleteCustomer();
+            var Bicycle = new DeleteBicycle();
+            var BookingDetail = new DeleteBooking_detail();
+            var Bicycle_brand = new DeleteBicycle_brand();
+            
             Console.Clear();
             Console.WriteLine("1: Delete Customer");
             Console.WriteLine("2: Delete Bicycle");
             Console.WriteLine("3: Delete Booking_detail");
             Console.WriteLine("4: Delete Bicycle_brand");
-
 
             Console.WriteLine("");
 
@@ -204,16 +214,20 @@ namespace BicycleRental.Methods
             switch (userChoice)
             {
                 case "1":
-                    //Delete Customer();
+                    Customer.DeleteExistingCustomer();
+                    ReturnToMainMenu();
                     break;
                 case "2":
-                    //Delete Bicycle();
+                    Bicycle.DeleteExistingBicycle();
+                    ReturnToMainMenu();
                     break;
                 case "3":
-                    //Delete Booking_detail();
+                    BookingDetail.DeleteExistingCustomer();
+                    ReturnToMainMenu();
                     break;
                 case "4":
-                    //Delete Bicycle_brand();
+                    Bicycle_brand.DeleteExistingBicycleBrand();
+                    ReturnToMainMenu();
                     break;
                 default:
                     Console.Clear();
@@ -229,10 +243,12 @@ namespace BicycleRental.Methods
         /// </summary>
         public static void ShowInformation()
         {
+            var Multi = new GetCustomerWithBicycle();
+
             Console.Clear();
             Console.WriteLine("1: Show all information");
             Console.WriteLine("2: Show specific information");
-            
+            Console.WriteLine("3: Customer with Bicycle");
 
             Console.WriteLine("");
 
@@ -244,6 +260,10 @@ namespace BicycleRental.Methods
                     break;
                 case "2":
                     ShowSpecificInformation();
+                    break;
+                case "3":
+                    Multi.GetCustomerWithBookingAndBicycle();
+                    ReturnToMainMenu();
                     break;
                 default:
                     Console.Clear();
@@ -342,7 +362,7 @@ namespace BicycleRental.Methods
             }
         }
 
-        public static void ReturnToMainMenu() 
+        public static void ReturnToMainMenu()
         {
             Console.WriteLine("");
             Console.WriteLine("Press any key to return to Main Menu");

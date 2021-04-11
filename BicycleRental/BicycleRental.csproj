@@ -19,10 +19,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Methods\Bicyle\" />
-    <Folder Include="Methods\Bicycle_brand\" />
-    <Folder Include="Methods\Booking_details\" />
-  </ItemGroup>
-
 </Project>

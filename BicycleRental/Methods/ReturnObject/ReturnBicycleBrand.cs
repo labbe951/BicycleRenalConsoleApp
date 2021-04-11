@@ -1,7 +1,4 @@
 ﻿using BicycleRental.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BicycleRental.Methods.ReturnObject
 {
@@ -13,7 +10,7 @@ namespace BicycleRental.Methods.ReturnObject
 
         }
 
-        public Bicycle_brand Return_Bicycle(int bicycle_brand_Id)
+        public Bicycle_brand Return_BicycleBrand(int bicycle_brand_Id)
         {
             var _bicycleBrand = _bicycleRentalDbContext.Bicycle_brands.Find(bicycle_brand_Id);
 

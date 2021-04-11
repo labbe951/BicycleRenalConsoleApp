@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BicycleRental.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BicycleRental.Configurations
 {
@@ -23,7 +21,7 @@ namespace BicycleRental.Configurations
                 .WithMany(b => b.Booking_Details)
                 .HasForeignKey(b => b.Bicycle_id);
 
-                
+
         }
     }
 }

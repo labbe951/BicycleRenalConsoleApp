@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BicycleRental.Methods.GetAllInformation
 {
@@ -12,7 +10,7 @@ namespace BicycleRental.Methods.GetAllInformation
         /// <summary>
         /// Get all existing Customers
         /// </summary>
-        public void GetAllCustomersInfo() 
+        public void GetAllCustomersInfo()
         {
             var GetInfo = _bicycleRentalDbContext.Customers.ToList();
 
@@ -20,7 +18,8 @@ namespace BicycleRental.Methods.GetAllInformation
             foreach (var item in GetInfo)
             {
                 Console.WriteLine($"Customer_id: {item.Customer_id}");
-                Console.WriteLine($"Customer_name: {item.Customer_name}");
+                Console.WriteLine($"Customer_First_Name: {item.Customer_First_Name}");
+                Console.WriteLine($"Customer_Last_Name: {item.Customer_Last_Name}");
                 Console.WriteLine($"Gender: {item.Gender}");
                 Console.WriteLine($"Phone_number: {item.Phone_number}");
                 Console.WriteLine($"E_mail: {item.E_mail}");
@@ -28,7 +27,7 @@ namespace BicycleRental.Methods.GetAllInformation
                 Console.WriteLine("-------------------------------------");
 
             }
-            
+
         }
     }
 }

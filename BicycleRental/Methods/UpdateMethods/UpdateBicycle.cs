@@ -1,10 +1,6 @@
 ﻿using BicycleRental.Methods.GetAllInformation;
-using BicycleRental.Methods.GetSpecificInformation;
 using BicycleRental.Methods.ReturnObject;
-using BicycleRental.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BicycleRental.Methods.UpdateMethods
 {
@@ -16,19 +12,17 @@ namespace BicycleRental.Methods.UpdateMethods
         {
 
         }
-        
 
-        public void UpdateExistingBicycle() 
+
+        public void UpdateExistingBicycle()
         {
-            
+
 
             try
             {
 
-                
-
-                var Bicycle = new GetAllBicycles();
-                Bicycle.GetAllBicyclesInfo();
+                var bicycle = new GetAllBicycles();
+                bicycle.GetAllBicyclesInfo();
 
                 Console.WriteLine("Choose bicycle to update by entering Bicycle Id: ");
                 var userinput = Convert.ToInt32(Console.ReadLine());
@@ -36,7 +30,7 @@ namespace BicycleRental.Methods.UpdateMethods
                 var getBicycle = new ReturnBicycle();
                 var bicycleToUpdate = getBicycle.Return_Bicycle(userinput);
 
-                
+
                 Console.WriteLine("Change bicycle information");
                 Console.WriteLine("");
                 Console.WriteLine("Update Frame number");
@@ -48,7 +42,7 @@ namespace BicycleRental.Methods.UpdateMethods
                 _bicycleRentalDbContext
                     .Bicycles
                     .Update(bicycleToUpdate);
-                        
+
                 _bicycleRentalDbContext
                         .SaveChanges();
 
@@ -56,7 +50,6 @@ namespace BicycleRental.Methods.UpdateMethods
                 Console.WriteLine($"Bicycle Bicycle_id: {bicycleToUpdate.Bicycle_id}");
                 Console.WriteLine($"Bicycle Frame_number: {bicycleToUpdate.Frame_number}");
                 Console.WriteLine($"Bicycle Brand_id: {bicycleToUpdate.Brand_id}");
-
 
             }
 

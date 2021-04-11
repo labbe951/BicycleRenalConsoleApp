@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BicycleRental.Methods.GetAllInformation
 {
@@ -9,7 +7,7 @@ namespace BicycleRental.Methods.GetAllInformation
     {
         readonly BicycleRentalDbContext _bicycleRentalDbContext = new BicycleRentalDbContext();
 
-        public void GetAllBicycleBrandsInfo() 
+        public void GetAllBookingDetailsInfo()
         {
             var GetInfo = _bicycleRentalDbContext.Booking_details.ToList();
 

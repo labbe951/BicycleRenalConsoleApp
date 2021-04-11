@@ -1,6 +1,4 @@
 ﻿using BicycleRental.Methods;
-using System;
-using Figgle;
 
 namespace BicycleRental
 {

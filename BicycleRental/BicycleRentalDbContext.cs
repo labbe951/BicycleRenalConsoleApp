@@ -1,9 +1,6 @@
 ﻿using BicycleRental.Configurations;
 using BicycleRental.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BicycleRental
 {
@@ -28,7 +25,7 @@ namespace BicycleRental
             optionsBuilder.UseSqlServer($@"Server = (localdb)\MSSQLLocalDB;Database=BicycleRental;trusted_connection=true");
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .ApplyConfiguration(new Bicycle_brand_config());

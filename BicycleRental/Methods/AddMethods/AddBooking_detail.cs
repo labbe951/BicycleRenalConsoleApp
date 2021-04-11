@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BicycleRental.Models;
+using System;
 
 namespace BicycleRental.Methods.AddMethods
 {
@@ -47,7 +46,7 @@ namespace BicycleRental.Methods.AddMethods
                 Console.WriteLine($"Customer_name: {NewBooking_detail.Rental_price}");
                 Console.WriteLine($"Gender: {NewBooking_detail.Customer_id}");
                 Console.WriteLine($"Phone_number: {NewBooking_detail.Bicycle_id}");
-                
+
             }
 
             catch (Exception ex)

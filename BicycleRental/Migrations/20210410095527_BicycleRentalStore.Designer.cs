@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BicycleRental.Migrations
 {
     [DbContext(typeof(BicycleRentalDbContext))]
-    [Migration("20210409110849_InitPhoneBigInt")]
-    partial class InitPhoneBigInt
+    [Migration("20210410095527_BicycleRentalStore")]
+    partial class BicycleRentalStore
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,37 +20,6 @@ namespace BicycleRental.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("BicycleRental.Booking_detail", b =>
-                {
-                    b.Property<int>("Booking_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Bicycle_id")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Booking_date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("Customer_id")
-                        .HasColumnType("int");
-
-                    b.Property<float>("Rental_price")
-                        .HasColumnType("real");
-
-                    b.Property<DateTime>("Return_due_date")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Booking_id");
-
-                    b.HasIndex("Bicycle_id");
-
-                    b.HasIndex("Customer_id");
-
-                    b.ToTable("Booking_details");
-                });
 
             modelBuilder.Entity("BicycleRental.Models.Bicycle", b =>
                 {
@@ -93,6 +62,37 @@ namespace BicycleRental.Migrations
                     b.ToTable("Bicycle_brands");
                 });
 
+            modelBuilder.Entity("BicycleRental.Models.Booking_detail", b =>
+                {
+                    b.Property<int>("Booking_id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Bicycle_id")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Booking_date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Customer_id")
+                        .HasColumnType("int");
+
+                    b.Property<float>("Rental_price")
+                        .HasColumnType("real");
+
+                    b.Property<DateTime>("Return_due_date")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Booking_id");
+
+                    b.HasIndex("Bicycle_id");
+
+                    b.HasIndex("Customer_id");
+
+                    b.ToTable("Booking_details");
+                });
+
             modelBuilder.Entity("BicycleRental.Models.Customer", b =>
                 {
                     b.Property<int>("Customer_id")
@@ -100,7 +100,10 @@ namespace BicycleRental.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Customer_name")
+                    b.Property<string>("Customer_First_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Customer_Last_Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("E_mail")
@@ -117,7 +120,18 @@ namespace BicycleRental.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("BicycleRental.Booking_detail", b =>
+            modelBuilder.Entity("BicycleRental.Models.Bicycle", b =>
+                {
+                    b.HasOne("BicycleRental.Models.Bicycle_brand", "Bicycle_brand")
+                        .WithMany("Bicycles")
+                        .HasForeignKey("Brand_id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Bicycle_brand");
+                });
+
+            modelBuilder.Entity("BicycleRental.Models.Booking_detail", b =>
                 {
                     b.HasOne("BicycleRental.Models.Bicycle", "Bicycle")
                         .WithMany("Booking_Details")
@@ -134,17 +148,6 @@ namespace BicycleRental.Migrations
                     b.Navigation("Bicycle");
 
                     b.Navigation("Customer");
-                });
-
-            modelBuilder.Entity("BicycleRental.Models.Bicycle", b =>
-                {
-                    b.HasOne("BicycleRental.Models.Bicycle_brand", "Bicycle_brand")
-                        .WithMany("Bicycles")
-                        .HasForeignKey("Brand_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Bicycle_brand");
                 });
 
             modelBuilder.Entity("BicycleRental.Models.Bicycle", b =>

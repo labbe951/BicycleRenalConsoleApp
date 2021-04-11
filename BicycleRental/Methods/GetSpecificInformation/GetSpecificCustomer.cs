@@ -1,7 +1,5 @@
 ﻿using BicycleRental.Methods.GetAllInformation;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BicycleRental.Methods.GetSpecificInformation
 {
@@ -13,7 +11,7 @@ namespace BicycleRental.Methods.GetSpecificInformation
         {
 
         }
-        public void GetSpecificCustomerInfo() 
+        public void GetSpecificCustomerInfo()
         {
             var customers = new GetAllCustomers();
             Console.WriteLine($"Here are all existing customers:\n");
@@ -27,7 +25,8 @@ namespace BicycleRental.Methods.GetSpecificInformation
 
             Console.WriteLine($"Your specific customer: ");
             Console.WriteLine($"Customer_id: {customer.Customer_id}");
-            Console.WriteLine($"Customer_name: {customer.Customer_name}");
+            Console.WriteLine($"Customer_First_Name: {customer.Customer_First_Name}");
+            Console.WriteLine($"Customer_Last_Name: {customer.Customer_Last_Name}");
             Console.WriteLine($"Gender: {customer.Gender}");
             Console.WriteLine($"Phone_number: {customer.Phone_number}");
             Console.WriteLine($"E_mail: {customer.E_mail}");

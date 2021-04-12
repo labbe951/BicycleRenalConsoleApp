@@ -35,7 +35,7 @@ namespace BicycleRental.Methods.DeleteMethods
                 _bicycleRentalDbContext
                         .SaveChanges();
 
-                Console.WriteLine($"Existing Bicycles with Bicycle Id {bicycleToDelete.Bicycle_id} deleted successfully!");
+                Console.WriteLine($"Existing Bicycles with Bicycle Id: {bicycleToDelete.Bicycle_id} deleted successfully!");
 
             }
 

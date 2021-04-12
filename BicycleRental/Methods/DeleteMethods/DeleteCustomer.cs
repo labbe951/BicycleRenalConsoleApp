@@ -35,7 +35,7 @@ namespace BicycleRental.Methods.DeleteMethods
                 _bicycleRentalDbContext
                         .SaveChanges();
 
-                Console.WriteLine($"Existing customer with customer id {customerToDelete.Customer_id} deleted successfully!");
+                Console.WriteLine($"Existing customer with customer id: {customerToDelete.Customer_id} deleted successfully!");
 
             }
 

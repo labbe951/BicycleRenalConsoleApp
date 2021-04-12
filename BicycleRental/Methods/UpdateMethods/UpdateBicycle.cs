@@ -47,9 +47,12 @@ namespace BicycleRental.Methods.UpdateMethods
                         .SaveChanges();
 
                 Console.WriteLine("Existing bicicle updated successfully!");
+                Console.WriteLine("");
+                Console.WriteLine("---------------------------------------");
                 Console.WriteLine($"Bicycle Bicycle_id: {bicycleToUpdate.Bicycle_id}");
                 Console.WriteLine($"Bicycle Frame_number: {bicycleToUpdate.Frame_number}");
                 Console.WriteLine($"Bicycle Brand_id: {bicycleToUpdate.Brand_id}");
+                Console.WriteLine("---------------------------------------");
 
             }
 

@@ -17,8 +17,8 @@ namespace BicycleRental.Methods.UpdateMethods
             try
             {
 
-                var bicycleBrand = new GetAllCustomers();
-                bicycleBrand.GetAllCustomersInfo();
+                var customer = new GetAllCustomers();
+                customer.GetAllCustomersInfo();
 
                 Console.WriteLine("Choose Customer to update by entering Customer Id: ");
                 var userinput = Convert.ToInt32(Console.ReadLine());
@@ -48,11 +48,14 @@ namespace BicycleRental.Methods.UpdateMethods
                         .SaveChanges();
 
                 Console.WriteLine("Existing Customer updated successfully!");
+                Console.WriteLine("");
+                Console.WriteLine("---------------------------------------");
                 Console.WriteLine($"Customer Customer_First_Name: {customerToUpdate.Customer_First_Name}");
                 Console.WriteLine($"Customer Customer_Last_Name: {customerToUpdate.Customer_Last_Name}");
                 Console.WriteLine($"Customer Gender: {customerToUpdate.Gender}");
                 Console.WriteLine($"Customer Phone_number: {customerToUpdate.Phone_number}");
                 Console.WriteLine($"Customer E_mail: {customerToUpdate.E_mail}");
+                Console.WriteLine("---------------------------------------");
 
             }
 

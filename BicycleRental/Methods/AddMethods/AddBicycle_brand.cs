@@ -17,31 +17,35 @@ namespace BicycleRental.Methods.AddMethods
         public void AddNewBicycleBrand()
         {
 
-            Console.WriteLine("Bicycle_type");
-            var Bicycle_type = Console.ReadLine();
-            Console.WriteLine("Bicycle_name");
-            var Bicycle_name = Console.ReadLine();
-            Console.WriteLine("Avilability");
-            var Avilability = Convert.ToBoolean(Console.ReadLine());
-
             try
             {
-                var NewBicycleBrand = new Bicycle_brand()
+                Console.WriteLine("Bicycle_type");
+                var bicycleType = Console.ReadLine();
+                Console.WriteLine("Bicycle_name");
+                var bicycleName = Console.ReadLine();
+                Console.WriteLine("Avilability");
+                var avilability = Convert.ToBoolean(Console.ReadLine());
+
+                var newBicycleBrand = new Bicycle_brand()
                 {
-                    Bicycle_type = Bicycle_type,
-                    Bicycle_name = Bicycle_name,
-                    Avilability = Avilability
+                    Bicycle_type = bicycleType,
+                    Bicycle_name = bicycleName,
+                    Avilability = avilability
 
                 };
+
                 _bicycleRentalDbContext.Bicycle_brands
-                    .Add(NewBicycleBrand);
+                    .Add(newBicycleBrand);
                 _bicycleRentalDbContext
                 .SaveChanges();
 
-                Console.WriteLine("New BicycleBrand added successfully!");
-                Console.WriteLine($"Bicycle_type: {NewBicycleBrand.Bicycle_type}");
-                Console.WriteLine($"Bicycle_name: {NewBicycleBrand.Bicycle_name}");
-                Console.WriteLine($"Avilability: {NewBicycleBrand.Avilability}");
+                Console.WriteLine("New Bicycle Brand added successfully!");
+                Console.WriteLine("");
+                Console.WriteLine("---------------------------------------");
+                Console.WriteLine($"Bicycle_type: {newBicycleBrand.Bicycle_type}");
+                Console.WriteLine($"Bicycle_name: {newBicycleBrand.Bicycle_name}");
+                Console.WriteLine($"Avilability: {newBicycleBrand.Avilability}");
+                Console.WriteLine("---------------------------------------");
 
             }
 

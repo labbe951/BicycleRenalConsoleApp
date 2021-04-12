@@ -17,10 +17,12 @@ namespace BicycleRental.Methods.GetAllInformation
         /// </summary>
         public void GetAllBicycleBrandsInfo()
         {
-            var GetInfo = _bicycleRentalDbContext.Bicycle_brands.ToList();
+            var getInfo = _bicycleRentalDbContext.Bicycle_brands.ToList();
+
+            Console.Clear();
 
 
-            foreach (var item in GetInfo)
+            foreach (var item in getInfo)
             {
                 Console.WriteLine("");
                 Console.WriteLine($"Brand_id: { item.Brand_id}");

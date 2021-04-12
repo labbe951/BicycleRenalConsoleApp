@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BicycleRental.Migrations
 {
     [DbContext(typeof(BicycleRentalDbContext))]
-    [Migration("20210410095527_BicycleRentalStore")]
-    partial class BicycleRentalStore
+    [Migration("20210412131959_AddedSeeding")]
+    partial class AddedSeeding
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -118,6 +118,19 @@ namespace BicycleRental.Migrations
                     b.HasKey("Customer_id");
 
                     b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("BicycleRental.Models.DatabaseOwner", b =>
+                {
+                    b.Property<string>("OwnersFirstName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("OwnersLastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("OwnersFirstName");
+
+                    b.ToTable("DatabaseOwners");
                 });
 
             modelBuilder.Entity("BicycleRental.Models.Bicycle", b =>

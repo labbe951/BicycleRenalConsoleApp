@@ -17,35 +17,38 @@ namespace BicycleRental.Methods.AddMethods
         public void AddNewBooking_detail()
         {
 
-            Console.WriteLine("Return_due_date");
-            var Return_due_date = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("Rental_price");
-            var Rental_price = float.Parse(Console.ReadLine());
-            Console.WriteLine("Customer_id");
-            var Customer_id = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Bicycle_id");
-            var Bicycle_id = Convert.ToInt32(Console.ReadLine());
-
-
             try
             {
-                var NewBooking_detail = new Booking_detail()
+                Console.WriteLine("Return_due_date");
+                var returnDueDate = DateTime.Parse(Console.ReadLine());
+                Console.WriteLine("Rental_price");
+                var rentalPrice = float.Parse(Console.ReadLine());
+                Console.WriteLine("Customer_id");
+                var customerId = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Bicycle_id");
+                var bicycleId = Convert.ToInt32(Console.ReadLine());
+
+                var newBookingDetail = new Booking_detail()
                 {
-                    Return_due_date = Return_due_date,
-                    Rental_price = Rental_price,
-                    Customer_id = Customer_id,
-                    Bicycle_id = Bicycle_id
+                    Booking_date = DateTime.Now,
+                    Return_due_date = returnDueDate,
+                    Rental_price = rentalPrice,
+                    Customer_id = customerId,
+                    Bicycle_id = bicycleId
                 };
                 _bicycleRentalDbContext.Booking_details
-                    .Add(NewBooking_detail);
+                    .Add(newBookingDetail);
                 _bicycleRentalDbContext
                 .SaveChanges();
 
-                Console.WriteLine("New customer added successfully!");
-                Console.WriteLine($"Customer_id: {NewBooking_detail.Return_due_date}");
-                Console.WriteLine($"Customer_name: {NewBooking_detail.Rental_price}");
-                Console.WriteLine($"Gender: {NewBooking_detail.Customer_id}");
-                Console.WriteLine($"Phone_number: {NewBooking_detail.Bicycle_id}");
+                Console.WriteLine("New booking detail added successfully!");
+                Console.WriteLine("");
+                Console.WriteLine("---------------------------------------");
+                Console.WriteLine($"Return_due_date: {newBookingDetail.Return_due_date.ToShortDateString()}");
+                Console.WriteLine($"Rental_price: {newBookingDetail.Rental_price}");
+                Console.WriteLine($"Customer_id: {newBookingDetail.Customer_id}");
+                Console.WriteLine($"Bicycle_id: {newBookingDetail.Bicycle_id}");
+                Console.WriteLine("---------------------------------------");
 
             }
 

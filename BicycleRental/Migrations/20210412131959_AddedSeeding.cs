@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BicycleRental.Migrations
 {
-    public partial class BicycleRentalStore : Migration
+    public partial class AddedSeeding : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,6 +37,18 @@ namespace BicycleRental.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Customers", x => x.Customer_id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DatabaseOwners",
+                columns: table => new
+                {
+                    OwnersFirstName = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    OwnersLastName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DatabaseOwners", x => x.OwnersFirstName);
                 });
 
             migrationBuilder.CreateTable(
@@ -108,6 +120,9 @@ namespace BicycleRental.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Booking_details");
+
+            migrationBuilder.DropTable(
+                name: "DatabaseOwners");
 
             migrationBuilder.DropTable(
                 name: "Bicycles");

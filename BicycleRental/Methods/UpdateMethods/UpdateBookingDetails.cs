@@ -20,7 +20,7 @@ namespace BicycleRental.Methods.UpdateMethods
                 var bookingDetail = new GetAllBookingDetails();
                 bookingDetail.GetAllBookingDetailsInfo();
 
-                Console.WriteLine("Choose BookingDetail to update by entering Booking Id: ");
+                Console.WriteLine("Choose Booking detail to update by entering Booking Id: ");
                 var userinput = Convert.ToInt32(Console.ReadLine());
 
                 var getBookingDetail = new ReturnBookingDetails();
@@ -47,12 +47,15 @@ namespace BicycleRental.Methods.UpdateMethods
                 _bicycleRentalDbContext
                         .SaveChanges();
 
-                Console.WriteLine("Existing bicicle updated successfully!");
+                Console.WriteLine("Existing Booking detail updated successfully!");
+                Console.WriteLine("");
+                Console.WriteLine("---------------------------------------");
                 Console.WriteLine($"Customer Booking_date: {bookingDetailToUpdate.Booking_date}");
                 Console.WriteLine($"Customer Return_due_date: {bookingDetailToUpdate.Return_due_date}");
                 Console.WriteLine($"Customer Rental_price: {bookingDetailToUpdate.Rental_price}");
                 Console.WriteLine($"Customer Customer_id: {bookingDetailToUpdate.Customer_id}");
                 Console.WriteLine($"Customer Bicycle_id: {bookingDetailToUpdate.Bicycle_id}");
+                Console.WriteLine("---------------------------------------");
 
             }
 

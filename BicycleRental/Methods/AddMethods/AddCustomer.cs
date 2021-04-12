@@ -17,41 +17,42 @@ namespace BicycleRental.Methods.AddMethods
         public void AddNewCustomer()
         {
 
-            Console.WriteLine("Customer_First_Name");
-            var Customer_First_Name = Console.ReadLine();
-            Console.WriteLine("Customer_Last_Name");
-            var Customer_Last_Name = Console.ReadLine();
-            Console.WriteLine("Gender");
-            var Gender = Console.ReadLine();
-            Console.WriteLine("Phone_number");
-            var Phone_number = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("E_mail");
-            var E_mail = Console.ReadLine();
-
-
-
             try
             {
-                var NewCustomer = new Customer()
+                Console.WriteLine("Customer_First_Name");
+                var customerFirstName = Console.ReadLine();
+                Console.WriteLine("Customer_Last_Name");
+                var customerLastName = Console.ReadLine();
+                Console.WriteLine("Gender");
+                var gender = Console.ReadLine();
+                Console.WriteLine("Phone_number");
+                var phoneNumber = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("E_mail");
+                var eMail = Console.ReadLine();
+
+                var newCustomer = new Customer()
                 {
-                    Customer_First_Name = Customer_First_Name,
-                    Customer_Last_Name = Customer_Last_Name,
-                    Gender = Gender,
-                    Phone_number = Phone_number,
-                    E_mail = E_mail
+                    Customer_First_Name = customerFirstName,
+                    Customer_Last_Name = customerLastName,
+                    Gender = gender,
+                    Phone_number = phoneNumber,
+                    E_mail = eMail
                 };
                 _bicycleRentalDbContext.Customers
-                    .Add(NewCustomer);
+                    .Add(newCustomer);
                 _bicycleRentalDbContext
                 .SaveChanges();
 
                 Console.WriteLine("New customer added successfully!");
-                Console.WriteLine($"Customer_id: {NewCustomer.Customer_id}");
-                Console.WriteLine($"Customer_First_Name: {NewCustomer.Customer_First_Name}");
-                Console.WriteLine($"Customer_Last_Name: {NewCustomer.Customer_Last_Name}");
-                Console.WriteLine($"Gender: {NewCustomer.Gender}");
-                Console.WriteLine($"Phone_number: {NewCustomer.Phone_number}");
-                Console.WriteLine($"E_mail: {NewCustomer.E_mail}");
+                Console.WriteLine("");
+                Console.WriteLine("---------------------------------------");
+                Console.WriteLine($"Customer_id: {newCustomer.Customer_id}");
+                Console.WriteLine($"Customer_First_Name: {newCustomer.Customer_First_Name}");
+                Console.WriteLine($"Customer_Last_Name: {newCustomer.Customer_Last_Name}");
+                Console.WriteLine($"Gender: {newCustomer.Gender}");
+                Console.WriteLine($"Phone_number: {newCustomer.Phone_number}");
+                Console.WriteLine($"E_mail: {newCustomer.E_mail}");
+                Console.WriteLine("---------------------------------------");
                 Console.WriteLine("");
             }
 

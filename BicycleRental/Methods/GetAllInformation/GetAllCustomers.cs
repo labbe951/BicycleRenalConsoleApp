@@ -12,10 +12,11 @@ namespace BicycleRental.Methods.GetAllInformation
         /// </summary>
         public void GetAllCustomersInfo()
         {
-            var GetInfo = _bicycleRentalDbContext.Customers.ToList();
+            var getInfo = _bicycleRentalDbContext.Customers.ToList();
 
+            Console.Clear();
 
-            foreach (var item in GetInfo)
+            foreach (var item in getInfo)
             {
                 Console.WriteLine($"Customer_id: {item.Customer_id}");
                 Console.WriteLine($"Customer_First_Name: {item.Customer_First_Name}");

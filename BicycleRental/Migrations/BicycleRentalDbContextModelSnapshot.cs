@@ -118,6 +118,19 @@ namespace BicycleRental.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("BicycleRental.Models.DatabaseOwner", b =>
+                {
+                    b.Property<string>("OwnersFirstName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("OwnersLastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("OwnersFirstName");
+
+                    b.ToTable("DatabaseOwners");
+                });
+
             modelBuilder.Entity("BicycleRental.Models.Bicycle", b =>
                 {
                     b.HasOne("BicycleRental.Models.Bicycle_brand", "Bicycle_brand")

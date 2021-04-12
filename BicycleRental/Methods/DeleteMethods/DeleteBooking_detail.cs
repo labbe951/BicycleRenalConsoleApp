@@ -22,7 +22,7 @@ namespace BicycleRental.Methods.DeleteMethods
                 var bookingDetails = new GetAllBookingDetails();
                 bookingDetails.GetAllBookingDetailsInfo();
 
-                Console.WriteLine("Choose bookingDetail to delete by entering Booking Id: ");
+                Console.WriteLine("Choose booking detail to delete by entering Booking Id: ");
                 var userinput = Convert.ToInt32(Console.ReadLine());
 
                 var getBookingDetail = new ReturnBookingDetails();
@@ -35,7 +35,7 @@ namespace BicycleRental.Methods.DeleteMethods
                 _bicycleRentalDbContext
                         .SaveChanges();
 
-                Console.WriteLine($"Existing booking details with booking id {bookingDetailToDelete.Booking_id} deleted successfully!");
+                Console.WriteLine($"Existing booking details with booking id: {bookingDetailToDelete.Booking_id} deleted successfully!");
 
             }
 

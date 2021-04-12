@@ -11,22 +11,33 @@ namespace BicycleRental.Methods.GetSpecificInformation
         {
 
         }
+        /// <summary>
+        /// Get specific bicycle info
+        /// </summary>
         public void GetSpecificBicycleInfo()
         {
-            var Bicycles = new GetAllBicycles();
-            Console.WriteLine($"Here are all existing Bicycles:\n");
-            Bicycles.GetAllBicyclesInfo();
+            try
+            {
+                var bicycles = new GetAllBicycles();
+                Console.WriteLine($"Here are all existing Bicycles:\n");
+                bicycles.GetAllBicyclesInfo();
 
-            Console.WriteLine($"\nChoose specific Bicycle to view by entering Bicycle Id ");
-            var userInput = Convert.ToInt32(Console.ReadLine());
-            var Bicycle = _bicycleRentalDbContext.Bicycles.Find(userInput);
+                Console.WriteLine($"\nChoose specific Bicycle to view by entering Bicycle Id ");
+                var userInput = Convert.ToInt32(Console.ReadLine());
+                var bicycle = _bicycleRentalDbContext.Bicycles.Find(userInput);
 
-            Console.Clear();
+                Console.Clear();
 
-            Console.WriteLine($"Your specific Bicycle: ");
-            Console.WriteLine($"Bicycle_id: {Bicycle.Bicycle_id}");
-            Console.WriteLine($"Brand_id: {Bicycle.Brand_id}");
-            Console.WriteLine($"Frame_number: {Bicycle.Frame_number}");
+                Console.WriteLine($"Your specific Bicycle: ");
+                Console.WriteLine($"Bicycle_id: {bicycle.Bicycle_id}");
+                Console.WriteLine($"Brand_id: {bicycle.Brand_id}");
+                Console.WriteLine($"Frame_number: {bicycle.Frame_number}");
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"You messed up! {ex}");
+            }
 
         }
     }

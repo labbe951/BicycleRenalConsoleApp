@@ -19,6 +19,7 @@ namespace BicycleRental
         public DbSet<Booking_detail> Booking_details { get; set; }
         public DbSet<Bicycle_brand> Bicycle_brands { get; set; }
         public DbSet<Bicycle> Bicycles { get; set; }
+        public DbSet<DatabaseOwner> DatabaseOwners { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,6 +36,8 @@ namespace BicycleRental
                 .ApplyConfiguration(new Booking_detail_config());
             modelBuilder
                 .ApplyConfiguration(new Customer_config());
+            modelBuilder
+                .ApplyConfiguration(new DatabaseOwner_config());
 
         }
 

@@ -6,6 +6,7 @@ using BicycleRental.Methods.UpdateMethods;
 using BicycleRental.Methods.GetMultiInfo;
 using Figgle;
 using System;
+using BicycleRental.Methods.StartupSeed;
 
 namespace BicycleRental.Methods
 {
@@ -35,11 +36,16 @@ namespace BicycleRental.Methods
         /// </summary>
         public static void MainMenu()
         {
+            var createSeed = new CreateSeed();
+
             Console.Clear();
-            Console.WriteLine("Main menu");
+            Console.WriteLine(FiggleFonts.Slant.Render("Main Menu"));
+            Console.WriteLine("------------------------------------------------");
             Console.WriteLine("1: Alter information");
             Console.WriteLine("2: Show information");
             Console.WriteLine("3: Exit Application");
+            Console.WriteLine("9: Seed information to database");
+            Console.WriteLine("-------------------------");
 
             var userChoice = Console.ReadLine();
             switch (userChoice)
@@ -49,6 +55,10 @@ namespace BicycleRental.Methods
                     break;
                 case "2":
                     ShowInformation();
+                    break;
+                case "9":
+                    createSeed.StartUpData();
+                    ReturnToMainMenu();
                     break;
                 case "3":
                     Environment.Exit(0);
@@ -71,6 +81,7 @@ namespace BicycleRental.Methods
             Console.WriteLine("1: Add information");
             Console.WriteLine("2: Update information");
             Console.WriteLine("3: Delete infromation");
+            Console.WriteLine("4: Return to Main Menu");
 
             Console.WriteLine("");
 
@@ -86,6 +97,9 @@ namespace BicycleRental.Methods
                 case "3":
                     DeleteInformation();
                     break;
+                case "4":
+                    MainMenu();
+                    break;
                 default:
                     Console.Clear();
                     Console.WriteLine("Input does not exist!.. Press any key except the one you pressed to get here!.. try again!.. ");
@@ -100,10 +114,10 @@ namespace BicycleRental.Methods
         /// </summary>
         public static void AddInformation()
         {
-            var Customer = new AddCustomer();
-            var Bicycle = new AddBicycle();
-            var BookingDetail = new AddBooking_detail();
-            var Bicycle_brand = new AddBicycle_brand();
+            var customer = new AddCustomer();
+            var bicycle = new AddBicycle();
+            var bookingDetail = new AddBooking_detail();
+            var bicycleBrand = new AddBicycle_brand();
 
             Console.Clear();
             Console.WriteLine("1: Add Customer");
@@ -118,19 +132,19 @@ namespace BicycleRental.Methods
             switch (userChoice)
             {
                 case "1":
-                    Customer.AddNewCustomer();
+                    customer.AddNewCustomer();
                     ReturnToMainMenu();
                     break;
                 case "2":
-                    Bicycle.AddNewBicycle();
+                    bicycle.AddNewBicycle();
                     ReturnToMainMenu();
                     break;
                 case "3":
-                    BookingDetail.AddNewBooking_detail();
+                    bookingDetail.AddNewBooking_detail();
                     ReturnToMainMenu();
                     break;
                 case "4":
-                    Bicycle_brand.AddNewBicycleBrand();
+                    bicycleBrand.AddNewBicycleBrand();
                     ReturnToMainMenu();
                     break;
                 case "5":
@@ -150,16 +164,16 @@ namespace BicycleRental.Methods
         /// </summary>
         public static void UpdateInformation()
         {
-            var Customer = new UpdateCustomer();
-            var Bicycle = new UpdateBicycle();
-            var BookingDetail = new UpdateBookingDetails();
-            var Bicycle_brand = new UpdateBicycleBrand();
+            var customer = new UpdateCustomer();
+            var bicycle = new UpdateBicycle();
+            var bookingDetail = new UpdateBookingDetails();
+            var bicycleBrand = new UpdateBicycleBrand();
 
             Console.Clear();
             Console.WriteLine("1: Update Customer");
             Console.WriteLine("2: Update Bicycle");
-            Console.WriteLine("3: Update Booking_detail");
-            Console.WriteLine("4: Update Bicycle_brand");
+            Console.WriteLine("3: Update Booking Detail");
+            Console.WriteLine("4: Update Bicycle Brand");
 
 
             Console.WriteLine("");
@@ -168,19 +182,19 @@ namespace BicycleRental.Methods
             switch (userChoice)
             {
                 case "1":
-                    Customer.UpdateExistingCustomer();
+                    customer.UpdateExistingCustomer();
                     ReturnToMainMenu();
                     break;
                 case "2":
-                    Bicycle.UpdateExistingBicycle();
+                    bicycle.UpdateExistingBicycle();
                     ReturnToMainMenu();
                     break;
                 case "3":
-                    BookingDetail.UpdateExistingBookingDetails();
+                    bookingDetail.UpdateExistingBookingDetails();
                     ReturnToMainMenu();
                     break;
                 case "4":
-                    Bicycle_brand.UpdateExistingBicycleBrand();
+                    bicycleBrand.UpdateExistingBicycleBrand();
                     ReturnToMainMenu();
                     break;
                 default:
@@ -197,10 +211,10 @@ namespace BicycleRental.Methods
         /// </summary>
         public static void DeleteInformation()
         {
-            var Customer = new DeleteCustomer();
-            var Bicycle = new DeleteBicycle();
-            var BookingDetail = new DeleteBooking_detail();
-            var Bicycle_brand = new DeleteBicycle_brand();
+            var customer = new DeleteCustomer();
+            var bicycle = new DeleteBicycle();
+            var bookingDetail = new DeleteBooking_detail();
+            var bicycleBrand = new DeleteBicycle_brand();
             
             Console.Clear();
             Console.WriteLine("1: Delete Customer");
@@ -214,19 +228,19 @@ namespace BicycleRental.Methods
             switch (userChoice)
             {
                 case "1":
-                    Customer.DeleteExistingCustomer();
+                    customer.DeleteExistingCustomer();
                     ReturnToMainMenu();
                     break;
                 case "2":
-                    Bicycle.DeleteExistingBicycle();
+                    bicycle.DeleteExistingBicycle();
                     ReturnToMainMenu();
                     break;
                 case "3":
-                    BookingDetail.DeleteExistingCustomer();
+                    bookingDetail.DeleteExistingCustomer();
                     ReturnToMainMenu();
                     break;
                 case "4":
-                    Bicycle_brand.DeleteExistingBicycleBrand();
+                    bicycleBrand.DeleteExistingBicycleBrand();
                     ReturnToMainMenu();
                     break;
                 default:
@@ -243,7 +257,7 @@ namespace BicycleRental.Methods
         /// </summary>
         public static void ShowInformation()
         {
-            var Multi = new GetCustomerWithBicycle();
+            var multi = new GetCustomerWithBicycle();
 
             Console.Clear();
             Console.WriteLine("1: Show all information");
@@ -262,7 +276,7 @@ namespace BicycleRental.Methods
                     ShowSpecificInformation();
                     break;
                 case "3":
-                    Multi.GetCustomerWithBookingAndBicycle();
+                    multi.GetCustomerWithBookingAndBicycle();
                     ReturnToMainMenu();
                     break;
                 default:
@@ -280,9 +294,9 @@ namespace BicycleRental.Methods
         /// </summary>
         public static void ShowAllInformation()
         {
-            var Bicycles = new GetAllBicycles();
-            var Customers = new GetAllCustomers();
-            var BicycleBrands = new GetAllBicycleBrands();
+            var bicycles = new GetAllBicycles();
+            var customers = new GetAllCustomers();
+            var bicycleBrands = new GetAllBicycleBrands();
 
             Console.Clear();
             Console.WriteLine("1: Show all Bicycles");
@@ -296,15 +310,15 @@ namespace BicycleRental.Methods
             switch (userChoice)
             {
                 case "1":
-                    Bicycles.GetAllBicyclesInfo();
+                    bicycles.GetAllBicyclesInfo();
                     ReturnToMainMenu();
                     break;
                 case "2":
-                    Customers.GetAllCustomersInfo();
+                    customers.GetAllCustomersInfo();
                     ReturnToMainMenu();
                     break;
                 case "3":
-                    BicycleBrands.GetAllBicycleBrandsInfo();
+                    bicycleBrands.GetAllBicycleBrandsInfo();
                     ReturnToMainMenu();
                     break;
                 default:
@@ -321,9 +335,10 @@ namespace BicycleRental.Methods
         /// </summary>
         public static void ShowSpecificInformation()
         {
-            var Customer = new GetSpecificCustomer();
-            var Bicycle = new GetSpecificBicycle();
-            var BicycleBrand = new GetSpecificBicycleBrand();
+            var customer = new GetSpecificCustomer();
+            var bicycle = new GetSpecificBicycle();
+            var bicycleBrand = new GetSpecificBicycleBrand();
+            var bookingDetail = new GetSpecificBookingDetails();
 
             Console.Clear();
             Console.WriteLine("1: Show specific Bicycle");
@@ -338,18 +353,19 @@ namespace BicycleRental.Methods
             switch (userChoice)
             {
                 case "1":
-                    Bicycle.GetSpecificBicycleInfo();
+                    bicycle.GetSpecificBicycleInfo();
                     ReturnToMainMenu();
                     break;
                 case "2":
-                    Customer.GetSpecificCustomerInfo();
+                    customer.GetSpecificCustomerInfo();
                     ReturnToMainMenu();
                     break;
                 case "3":
-                    //ShowSpecific Booking_detail();
+                    bookingDetail.GetSpecificBookingDetailsInfo();
+                    ReturnToMainMenu();
                     break;
                 case "4":
-                    BicycleBrand.GetSpecificBicycleBrandInfo();
+                    bicycleBrand.GetSpecificBicycleBrandInfo();
                     ReturnToMainMenu();
                     break;
                 default:

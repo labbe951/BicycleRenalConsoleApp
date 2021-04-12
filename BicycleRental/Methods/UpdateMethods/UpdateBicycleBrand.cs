@@ -47,10 +47,13 @@ namespace BicycleRental.Methods.UpdateMethods
                 _bicycleRentalDbContext
                         .SaveChanges();
 
-                Console.WriteLine("Existing bicicle updated successfully!");
+                Console.WriteLine("Existing bicicle brand: updated successfully!");
+                Console.WriteLine("");
+                Console.WriteLine("---------------------------------------");
                 Console.WriteLine($"Bicycle brand Bicycle_type: {bicycleBrandToUpdate.Bicycle_type}");
                 Console.WriteLine($"Bicycle brand Bicycle_name: {bicycleBrandToUpdate.Bicycle_name}");
                 Console.WriteLine($"Bicycle brand Avilability: {bicycleBrandToUpdate.Avilability}");
+                Console.WriteLine("---------------------------------------");
 
             }
 

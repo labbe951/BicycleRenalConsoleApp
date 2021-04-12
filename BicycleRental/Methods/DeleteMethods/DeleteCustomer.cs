@@ -28,6 +28,12 @@ namespace BicycleRental.Methods.DeleteMethods
                 var getCustomer = new ReturnCustomer();
                 var customerToDelete = getCustomer.Return_Customer(userinput);
 
+                if (customerToDelete == null)
+                {
+                    Console.WriteLine("No customer was found..");
+                    Visuals.ReturnToMainMenu();
+                }
+
                 _bicycleRentalDbContext
                     .Customers
                     .Remove(customerToDelete);

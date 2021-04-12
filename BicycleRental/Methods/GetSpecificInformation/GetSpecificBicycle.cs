@@ -26,6 +26,12 @@ namespace BicycleRental.Methods.GetSpecificInformation
                 var userInput = Convert.ToInt32(Console.ReadLine());
                 var bicycle = _bicycleRentalDbContext.Bicycles.Find(userInput);
 
+                if (bicycle == null)
+                {
+                    Console.WriteLine("No bicycle was found..");
+                    Visuals.ReturnToMainMenu();
+                }
+
                 Console.Clear();
 
                 Console.WriteLine($"Your specific Bicycle: ");

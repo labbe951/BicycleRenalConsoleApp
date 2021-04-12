@@ -9,21 +9,29 @@ namespace BicycleRental.Methods.GetAllInformation
 
         public void GetAllBookingDetailsInfo()
         {
-            var getInfo = _bicycleRentalDbContext.Booking_details.ToList();
-
-            Console.Clear();
-
-            foreach (var item in getInfo)
+            try
             {
-                Console.WriteLine($"Booking_id: {item.Booking_id}");
-                Console.WriteLine($"Booking_date: {item.Booking_date.ToShortDateString()}");
-                Console.WriteLine($"Return_due_date: {item.Return_due_date.ToShortDateString()}");
-                Console.WriteLine($"Rental_price: {item.Rental_price}");
-                Console.WriteLine($"Customer_id: {item.Customer_id}");
-                Console.WriteLine($"Bicycle_id: {item.Bicycle_id}");
-                Console.WriteLine("");
-                Console.WriteLine("-------------------------------------");
+                var getInfo = _bicycleRentalDbContext.Booking_details.ToList();
 
+                Console.Clear();
+
+                foreach (var item in getInfo)
+                {
+                    Console.WriteLine($"Booking_id: {item.Booking_id}");
+                    Console.WriteLine($"Booking_date: {item.Booking_date.ToShortDateString()}");
+                    Console.WriteLine($"Return_due_date: {item.Return_due_date.ToShortDateString()}");
+                    Console.WriteLine($"Rental_price: {item.Rental_price}");
+                    Console.WriteLine($"Customer_id: {item.Customer_id}");
+                    Console.WriteLine($"Bicycle_id: {item.Bicycle_id}");
+                    Console.WriteLine("");
+                    Console.WriteLine("-------------------------------------");
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"You messed up! {ex}");
             }
         }
     }

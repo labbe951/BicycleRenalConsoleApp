@@ -28,6 +28,12 @@ namespace BicycleRental.Methods.DeleteMethods
                 var getBookingDetail = new ReturnBookingDetails();
                 var bookingDetailToDelete = getBookingDetail.Return_BookingDetail(userinput);
 
+                if (bookingDetailToDelete == null)
+                {
+                    Console.WriteLine("No Booking Detail was found..");
+                    Visuals.ReturnToMainMenu();
+                }
+
                 _bicycleRentalDbContext
                     .Booking_details
                     .Remove(bookingDetailToDelete);

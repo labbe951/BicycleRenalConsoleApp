@@ -26,8 +26,13 @@ namespace BicycleRental.Methods.UpdateMethods
                 var getBookingDetail = new ReturnBookingDetails();
                 var bookingDetailToUpdate = getBookingDetail.Return_BookingDetail(userinput);
 
+                if (bookingDetailToUpdate == null)
+                {
+                    Console.WriteLine("No Booking Detail was found..");
+                    Visuals.ReturnToMainMenu();
+                }
 
-                Console.WriteLine("Booking detail information");
+                Console.WriteLine("Change Booking detail information");
                 Console.WriteLine("");
                 Console.WriteLine("Update Booking_date");
                 bookingDetailToUpdate.Booking_date = Convert.ToDateTime(Console.ReadLine());

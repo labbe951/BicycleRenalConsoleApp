@@ -26,6 +26,11 @@ namespace BicycleRental.Methods.UpdateMethods
                 var getCustomer = new ReturnCustomer();
                 var customerToUpdate = getCustomer.Return_Customer(userinput);
 
+                if (customerToUpdate == null)
+                {
+                    Console.WriteLine("No customer was found..");
+                    Visuals.ReturnToMainMenu();
+                }
 
                 Console.WriteLine("Change Customer information");
                 Console.WriteLine("");

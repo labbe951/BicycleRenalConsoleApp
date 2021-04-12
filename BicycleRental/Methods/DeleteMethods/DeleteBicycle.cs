@@ -28,6 +28,12 @@ namespace BicycleRental.Methods.DeleteMethods
                 var getBicycle = new ReturnBicycle();
                 var bicycleToDelete = getBicycle.Return_Bicycle(userinput);
 
+                if (bicycleToDelete == null)
+                {
+                    Console.WriteLine("No bicycle was found..");
+                    Visuals.ReturnToMainMenu();
+                }
+
                 _bicycleRentalDbContext
                     .Bicycles
                     .Remove(bicycleToDelete);

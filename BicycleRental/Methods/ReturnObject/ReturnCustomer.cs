@@ -12,9 +12,17 @@ namespace BicycleRental.Methods.ReturnObject
 
         public Customer Return_Customer(int customer_id)
         {
-            var _customer = _bicycleRentalDbContext.Customers.Find(customer_id);
+            try
+            {
+                var _customer = _bicycleRentalDbContext.Customers.Find(customer_id);
 
-            return _customer;
+                return _customer;
+            }
+            catch (System.Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

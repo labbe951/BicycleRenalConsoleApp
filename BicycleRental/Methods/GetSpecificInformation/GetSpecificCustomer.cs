@@ -27,6 +27,12 @@ namespace BicycleRental.Methods.GetSpecificInformation
                 var userInput = Convert.ToInt32(Console.ReadLine());
                 var customer = _bicycleRentalDbContext.Customers.Find(userInput);
 
+                if (customer == null)
+                {
+                    Console.WriteLine("No customer was found.."); 
+                    Visuals.ReturnToMainMenu();
+                }
+
                 Console.Clear();
 
                 Console.WriteLine($"Your specific customer: ");

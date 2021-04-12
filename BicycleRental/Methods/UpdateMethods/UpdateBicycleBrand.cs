@@ -28,6 +28,11 @@ namespace BicycleRental.Methods.UpdateMethods
                 var getBicycleBrand = new ReturnBicycleBrand();
                 var bicycleBrandToUpdate = getBicycleBrand.Return_BicycleBrand(userinput);
 
+                if (bicycleBrandToUpdate == null)
+                {
+                    Console.WriteLine("No Bicycle Brand was found..");
+                    Visuals.ReturnToMainMenu();
+                }
 
                 Console.WriteLine("Change bicycle brand information");
                 Console.WriteLine("");

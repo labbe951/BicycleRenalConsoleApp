@@ -30,6 +30,11 @@ namespace BicycleRental.Methods.UpdateMethods
                 var getBicycle = new ReturnBicycle();
                 var bicycleToUpdate = getBicycle.Return_Bicycle(userinput);
 
+                if (bicycleToUpdate == null)
+                {
+                    Console.WriteLine("No bicycle was found..");
+                    Visuals.ReturnToMainMenu();
+                }
 
                 Console.WriteLine("Change bicycle information");
                 Console.WriteLine("");

@@ -25,6 +25,12 @@ namespace BicycleRental.Methods.GetSpecificInformation
                 var userInput = Convert.ToInt32(Console.ReadLine());
                 var bookingDetail = _bicycleRentalDbContext.Booking_details.Find(userInput);
 
+                if (bookingDetail == null)
+                {
+                    Console.WriteLine("No bookingDetail was found..");
+                    Visuals.ReturnToMainMenu();
+                }
+
                 Console.Clear();
 
                 Console.WriteLine($"Your specific Booking Detail: ");

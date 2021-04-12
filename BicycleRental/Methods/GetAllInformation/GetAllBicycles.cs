@@ -17,19 +17,27 @@ namespace BicycleRental.Methods.GetAllInformation
         public void GetAllBicyclesInfo()
         {
 
-            var getInfo = _bicycleRentalDbContext.Bicycles.ToList();
-
-            Console.Clear();
-
-
-            foreach (var item in getInfo)
+            try
             {
-                Console.WriteLine($"Bicycle_id: {item.Bicycle_id}");
-                Console.WriteLine($"Brand_id: {item.Brand_id}");
-                Console.WriteLine($"Frame_number: {item.Frame_number}");
-                Console.WriteLine("");
-                Console.WriteLine("-------------------------------------");
+                var getInfo = _bicycleRentalDbContext.Bicycles.ToList();
 
+                Console.Clear();
+
+
+                foreach (var item in getInfo)
+                {
+                    Console.WriteLine($"Bicycle_id: {item.Bicycle_id}");
+                    Console.WriteLine($"Brand_id: {item.Brand_id}");
+                    Console.WriteLine($"Frame_number: {item.Frame_number}");
+                    Console.WriteLine("");
+                    Console.WriteLine("-------------------------------------");
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"You messed up! {ex}");
             }
         }
     }

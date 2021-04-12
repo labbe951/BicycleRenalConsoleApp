@@ -25,6 +25,12 @@ namespace BicycleRental.Methods.GetSpecificInformation
                 var userInput = Convert.ToInt32(Console.ReadLine());
                 var bicycleBrand = _bicycleRentalDbContext.Bicycle_brands.Find(userInput);
 
+                if (bicycleBrand == null)
+                {
+                    Console.WriteLine("No bicycleBrand was found..");
+                    Visuals.ReturnToMainMenu();
+                }
+
                 Console.Clear();
 
                 Console.WriteLine($"Your specific Bicycle Brand: ");

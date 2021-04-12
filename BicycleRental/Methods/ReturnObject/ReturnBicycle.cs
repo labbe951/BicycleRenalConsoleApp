@@ -12,9 +12,17 @@ namespace BicycleRental.Methods.ReturnObject
 
         public Bicycle Return_Bicycle(int bicycle_Id)
         {
-            var _bicycle = _bicycleRentalDbContext.Bicycles.Find(bicycle_Id);
+            try
+            {
+                var _bicycle = _bicycleRentalDbContext.Bicycles.Find(bicycle_Id);
 
-            return _bicycle;
+                return _bicycle;
+            }
+            catch (System.Exception ex)
+            {
+
+                throw ex;
+            }
         }
     }
 }

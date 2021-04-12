@@ -28,6 +28,12 @@ namespace BicycleRental.Methods.DeleteMethods
                 var getBicycleBrand = new ReturnBicycleBrand();
                 var bicycleBrandToDelete = getBicycleBrand.Return_BicycleBrand(userinput);
 
+                if (bicycleBrandToDelete == null)
+                {
+                    Console.WriteLine("No Bicycle Brand was found..");
+                    Visuals.ReturnToMainMenu();
+                }
+
                 _bicycleRentalDbContext
                     .Bicycle_brands
                     .Remove(bicycleBrandToDelete);

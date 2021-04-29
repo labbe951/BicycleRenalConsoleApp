@@ -7,6 +7,7 @@ using BicycleRental.Methods.GetMultiInfo;
 using Figgle;
 using System;
 using BicycleRental.Methods.StartupSeed;
+using BicycleRental.Methods.GetFiltered;
 
 namespace BicycleRental.Methods
 {
@@ -297,11 +298,13 @@ namespace BicycleRental.Methods
             var bicycles = new GetAllBicycles();
             var customers = new GetAllCustomers();
             var bicycleBrands = new GetAllBicycleBrands();
+            var filteredCustomer = new GetFilteredCustomers();
 
             Console.Clear();
             Console.WriteLine("1: Show all Bicycles");
             Console.WriteLine("2: Show all Customers");
             Console.WriteLine("3: Show all Bicycle Brands");
+            Console.WriteLine("4: Show all Customers who's first name starts with the letter 'A'");
 
 
             Console.WriteLine("");
@@ -319,6 +322,10 @@ namespace BicycleRental.Methods
                     break;
                 case "3":
                     bicycleBrands.GetAllBicycleBrandsInfo();
+                    ReturnToMainMenu();
+                    break;
+                case "4":
+                    filteredCustomer.GetFilteredCustomersInfo();
                     ReturnToMainMenu();
                     break;
                 default:
@@ -345,6 +352,7 @@ namespace BicycleRental.Methods
             Console.WriteLine("2: Show specific Customer");
             Console.WriteLine("3: Show specific Booking_detail");
             Console.WriteLine("4: Show specific Bicycle_brand");
+            
 
 
             Console.WriteLine("");
